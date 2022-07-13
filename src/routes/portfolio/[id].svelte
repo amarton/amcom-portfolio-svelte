@@ -1,24 +1,33 @@
 <script context="module">
     export const load = async ({ fetch, params }) => {
-        const id = params.id; 
-        const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
-        const post = await res.json();
+        let id = params.id; 
+        const res = await fetch('../port.json');
+        const projects = await res.json();
         return {
             props: {
-                post,
+                projects,
             }
         }
     }
 </script>
 
 <script>
-    export let post;
+  export let projects;
+  import { page } from '$app/stores';
+  let id = $page.params.id;
+  let newId = --id;
+  console.log(newId);
+  export let project = projects[newId];
 </script>
 
-<div class="container">
-    <h1>{post.title}</h1>
-    <p>{post.body}</p>
-</div>
+
+
+<div class="post">
+    <h2>{project.title}</h2>
+    <p>{project.body.substring(0, 80)}</p>
+    <p class="readmore"><a style=" color: rgb(10, 10, 139);" href={`/portfolio/${project.id}`}>Read More</a></p>
+</div> 
+
 
 <style>
     .container {
@@ -26,3 +35,8 @@
         margin: 50px auto;
     }
 </style>
+
+
+
+
+
