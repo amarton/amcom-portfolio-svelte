@@ -8,13 +8,12 @@ app.html is the main page that pull in everything
 PORTFOLIO:
 Portfolio is populated dynamically based on data located in a JSON file.
 
-THE DATA is located in static/port.json. Each object must have an assigned ID that is the same as it's location in the json file. The first object must have an assigned ID of 1, the second object of 2, etc. This is due to the way the individual portfolio items are displayed in routes/portfolio/[id].svelte (see below).
+THE DATA is located in static/port.json. 
+    * In order to use internal JSON, I need to install rollups json plugin in the project folder
 
-In order to use internal JSON, I need to install rollups json plugin in the project folder
+The MAIN PORTFOLIO PAGE is "routes/projects.svelte". It pulls in the json file and loops through it to display all. It sends the assigned id of each portfolio item to the individual portfolio pages via the url in the link button.
 
-The MAIN PORTFOLIO PAGE is "routes/projects.svelte". It pulls in the json file and loops through it to display all. The send the assigned id of each portfolio item to the individual portfolio pages via the url in the link button.
-
-The INDIVIDUAL PORTFOLIO PAGES are located at "routes/portfolio/[id].svelte". This uses svelte's dynamic routing. The page pulls in the json file. Then it pulls the portfolio ID out of the url store (sent via the link on the main page). They subtract 1 from this id and use that to display the portfolio item via "portfolio.item[0]". (This is not the best way. Would be better to display based on the assigned id)
+The INDIVIDUAL PORTFOLIO PAGES are located at "routes/portfolio/[id].svelte". This uses svelte's dynamic routing. The page pulls in the json file. Then it pulls the portfolio ID out of the url store (sent via the link on the main page) and selects the object from the JSON that has that same id.
 
 
 

@@ -13,42 +13,23 @@
 </script>
 
 <script>
-    export let projects;
-    //pull in data from the page data store
-        //the id was passed in the url
+    export let projects = [];
+    //access the date stored in the URL
     import { page } from '$app/stores';
-    //access the id sent in the URL
+    //access the id sent in the URL and assign it to a param called id
     let id = $page.params.id;
-    //subtract one from the ID
-    let newId = --id;
-    console.log(newId);
-    //use the prop project to hold the json object with the correcponding row number. 
-        //This might look like : projects[0], displaying the first object in the JSON.
-            //This only works if every object in the json file has an incremental id starting with 1.
-                //this is not the best way. Would be better if we could choose based off the assigned id
-    export let project = projects[newId];
+    console.log(id)
+    //select only the object where the id = the same as the id sent along in the URL
+    $: project = projects.find(p => p.id == id);
 </script>
 
 
 
-<div class="post">
+<!-- display the data for the selectd object from the JSON -->
+{#if project}
     <h2>{project.title}</h2>
     <p>{project.body}</p>
     <p>{project.tag}</p>
     <img src="../images/{project.image}" style="max-width:300px;"><br>
     <a href="/projects" style=" color:cornflowerblue;">Back to all projects</a>
-
-</div> 
-
-
-<style>
-    .container {
-        max-width: 900px;
-        margin: 50px auto;
-    }
-</style>
-
-
-
-
-
+{/if}
