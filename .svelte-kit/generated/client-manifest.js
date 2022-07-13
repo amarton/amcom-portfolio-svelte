@@ -4,8 +4,6 @@ export const components = [
 	() => import("../../src/routes/__layout.svelte"),
 	() => import("../runtime/components/error.svelte"),
 	() => import("../../src/routes/about.svelte"),
-	() => import("../../src/routes/blog/[id].svelte"),
-	() => import("../../src/routes/blog.svelte"),
 	() => import("../../src/routes/components.svelte"),
 	() => import("../../src/routes/contact.svelte"),
 	() => import("../../src/routes/index.svelte"),
@@ -16,14 +14,12 @@ export const components = [
 ];
 
 export const dictionary = {
-	"": [[0, 7], [1]],
+	"": [[0, 5], [1]],
 	"about": [[0, 2], [1]],
-	"blog": [[0, 4], [1]],
-	"components": [[0, 5], [1]],
-	"contact": [[0, 6], [1]],
-	"projects": [[0, 11], [1]],
-	"portfolio/temp-question": [[0, 9], [1]],
-	"portfolio/temp": [[0, 10], [1]],
-	"blog/[id]": [[0, 3], [1]],
-	"portfolio/[id]": [[0, 8], [1]]
+	"components": [[0, 3], [1]],
+	"contact": [[0, 4], [1]],
+	"projects": [[0, 9], [1]],
+	"portfolio/temp-question": [[0, 7], [1]],
+	"portfolio/temp": [[0, 8], [1]],
+	"portfolio/[id]": [[0, 6], [1]]
 };

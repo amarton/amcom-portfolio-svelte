@@ -6,7 +6,7 @@
 
 <script context="module">
     export const load = async ({ fetch }) => {
-        const res = await fetch("../port.json");
+        const res = await fetch("https://amarton.github.io/amcom-portfolio-svelte/static/port.json");
         const projects = await res.json();
         return {
             props: {
